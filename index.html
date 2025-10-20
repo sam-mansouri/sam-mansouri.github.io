@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Mansouri - Electrical & Computer Engineering</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: #60a5fa;
+        }
+
+        .section {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #60a5fa;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 2rem;
+            background: linear-gradient(180deg, #60a5fa, #a78bfa);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: rgba(51, 65, 85, 0.5);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: border-color 0.2s;
+        }
+
+        .skill-category:hover {
+            border-color: #60a5fa;
+        }
+
+        .skill-category h3 {
+            color: #a78bfa;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.4rem 0;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .exp-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .exp-date {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            font-size: 1.05rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+
+        .exp-details {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .exp-details li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        .exp-details li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-size: 1.2rem;
+        }
+
+        .education-header {
+            margin-bottom: 1rem;
+        }
+
+        .university {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.3rem;
+        }
+
+        .degree {
+            font-size: 1.05rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+
+        .edu-details {
+            display: grid;
+            gap: 0.75rem;
+            color: #cbd5e1;
+        }
+
+        .highlight {
+            display: inline-block;
+            background: rgba(96, 165, 250, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sam Mansouri</h1>
+            <div class="subtitle">Electrical & Computer Engineering</div>
+            <div class="contact">
+                <div class="contact-item">📍 Bothell, WA</div>
+                <div class="contact-item">📧 smans@uw.edu</div>
+                <div class="contact-item">📱 (425) 892-4543</div>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>About</h2>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.8;">
+                Electrical and Computer Engineering student at the University of Washington with expertise in system verification, embedded systems, and digital design. Experienced in aerospace electronics through work at Boeing and satellite development. Passionate about bridging complex technical concepts with practical applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>Python, C, C++, Java</li>
+                        <li>MATLAB/Simulink</li>
+                        <li>SystemVerilog, SysML</li>
+                        <li>Bash Scripting</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Fusion, KiCAD, MultiSim</li>
+                        <li>ModelSim, LTSpice, Quartus</li>
+                        <li>Arduino, Raspberry Pi</li>
+                        <li>Linux, Unix Systems</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Competencies</h3>
+                    <ul>
+                        <li>System Verification Testing</li>
+                        <li>3D CAD & PCB Design</li>
+                        <li>Embedded Systems</li>
+                        <li>Digital System Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>Microsoft Suite (2019)</li>
+                        <li>MATLAB & Simulink (2023)</li>
+                        <li>NASA Space Grant Scholar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Engineering Experience</h2>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">Electronic Systems Design Engineer Intern</div>
+                    <div class="exp-date">Jun 2023 - Present</div>
+                </div>
+                <div class="exp-company">The Boeing Company • Everett, WA</div>
+                <ul class="exp-details">
+                    <li>Created detailed test procedures for requirements verification of radio navigation electronics</li>
+                    <li>Modeled subsystem architecture using SysML and system behavior using Simulink</li>
+                    <li>Led Radio Navigation Design Practice development, integrating diverse technical knowledge</li>
+                    <li>Integrated system functional model in Simulink with Unix-based aircraft real-time simulation</li>
+                    <li>Created simulation scenarios for functional validation, development assurance and trade studies</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">Flight Operations Engineer</div>
+                    <div class="exp-date">Oct 2022 - Apr 2025</div>
+                </div>
+                <div class="exp-company">Aeronautics and Astronautics CubeSat • Seattle, WA</div>
+                <ul class="exp-details">
+                    <li>Supported software function development using lifecycle and config management processes</li>
+                    <li>Authored documentation for development process and implementation of automation script</li>
+                    <li>Created detailed action plan to ensure punctual project completion for satellite delivery</li>
+                    <li>Delivered and successfully launched satellite in July 2024</li>
+                    <li>Published SOC-I Satellite mission report and summary for NASA in April 2025</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Leadership Experience</h2>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">Founder and President</div>
+                    <div class="exp-date">Jan 2023 - Present</div>
+                </div>
+                <div class="exp-company">The Boring Club at UW • Seattle, WA</div>
+                <ul class="exp-details">
+                    <li>Registered and administered an Engineering Student Organization (ESO) with ~100 members</li>
+                    <li>Awarded ESO Grant for innovative and impactful contributions to College of Engineering</li>
+                    <li>Tutored peers on circuit design, Arduino-based design, and digital system design with FPGA</li>
+                    <li>Guest speaker at high school engineering classes regarding pursuit of engineering education</li>
+                    <li>Chief project engineer and integration specialist for remote-controlled car project</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">EPE Course Instructor</div>
+                    <div class="exp-date">Mar 2023 - Jan 2024</div>
+                </div>
+                <div class="exp-company">UW College of Engineering • Seattle, WA</div>
+                <ul class="exp-details">
+                    <li>Developed and executed lesson plans used to instruct and support engineering students</li>
+                    <li>Arranged industry guest event to initiate class dialogue on career/academic planning</li>
+                    <li>Mentored students in 1-on-1 meetings to support academic growth and create success plans</li>
+                    <li>Directed Advising and Orientation session to prepare incoming students for academic year</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education-header">
+                <div class="university">University of Washington</div>
+                <div class="degree">B.S. Electrical and Computer Engineering • Expected June 2026</div>
+            </div>
+            <div class="edu-details">
+                <div>
+                    <span class="highlight">GPA: 3.48</span>
+                    <span class="highlight">Minor in Linguistics</span>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                    <strong style="color: #a78bfa;">Honors:</strong> Washington NASA Space Grant Scholar (2022-2025) • Dean's List (Multiple Quarters)
+                </div>
+                <div style="margin-top: 0.75rem;">
+                    <strong style="color: #a78bfa;">Relevant Coursework:</strong> Control System Analysis, Embedded Systems Design, Computer Architecture, Data Structures and Algorithms, Semiconductor Devices, Circuit Theory, Digital Systems, Phonetics, Syntax, Phonology
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Sam Mansouri • Built with passion for engineering and innovation</p>
+        </footer>
+    </div>
+</body>
+</html>
